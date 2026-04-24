@@ -41,18 +41,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # ✅ 1. Checkout code
+      # 1. Checkout code
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # ✅ 2. Setup Java 17 (VERY IMPORTANT)
+      # 2. Setup Java 17 (VERY IMPORTANT)
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      # ✅ 3. Run SonarQube scan (updated version)
+      # 3. Run SonarQube scan (updated version)
       - name: Analyze with SonarQube
         uses: SonarSource/sonarqube-scan-action@v2
         env:
@@ -60,7 +60,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
-          args: >
+          args: 
             -Dsonar.projectKey=Rajdeep-m7_test_github-action
             -Dsonar.sources=.
             # Comma-separated paths to directories containing main source files.
